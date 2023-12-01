@@ -5,8 +5,6 @@ use std::{
 };
 
 pub fn calculate_trebuchet(input: &std::path::Path) -> u32 {
-    println!("Calculating trebuchet...");
-
     let file = File::open(input).unwrap();
     let reader = io::BufReader::new(file);
 
