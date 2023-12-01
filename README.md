@@ -1,1 +1,3 @@
-# aoc-2023
+# AOC-2023
+
+## Day 1: Trebuchet
