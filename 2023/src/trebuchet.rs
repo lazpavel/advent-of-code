@@ -1,29 +1,16 @@
-use std::{
-    collections::HashMap,
-    fs::File,
-    io::{self, BufRead},
-};
+use crate::input_utils;
+use std::collections::HashMap;
 
-pub fn calculate_trebuchet(input: &std::path::Path) -> u32 {
-    let file = File::open(input).unwrap();
-    let reader = io::BufReader::new(file);
-
-    // Vec to store the lines
-    let mut lines = Vec::new();
-
-    for line in reader.lines() {
-        lines.push(line);
-    }
+pub fn calculate_trebuchet(input_file_path: &std::path::Path) -> u32 {
+    let lines = input_utils::read_file_data(input_file_path);
 
     let mut sum = 0;
     for line in lines.iter() {
-        if let Ok(line) = line {
-            let first_digit = get_first_digit(line);
-            let last_digit = get_last_digit(line);
+        let first_digit = get_first_digit(line);
+        let last_digit = get_last_digit(line);
 
-            let result = first_digit * 10 + last_digit;
-            sum += result;
-        }
+        let result = first_digit * 10 + last_digit;
+        sum += result;
     }
 
     sum
