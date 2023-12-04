@@ -1,4 +1,4 @@
-use crate::input_utils;
+use crate::utils::input_utils;
 use std::collections::HashMap;
 
 pub fn calculate_trebuchet(input_file_path: &std::path::Path) -> u32 {

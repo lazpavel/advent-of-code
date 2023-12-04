@@ -1,4 +1,4 @@
-use crate::input_utils;
+use crate::utils::input_utils;
 
 struct Scratchcard {
     winning_numbers: Vec<u32>,

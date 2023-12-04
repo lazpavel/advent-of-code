@@ -1,4 +1,4 @@
-use crate::input_utils;
+use crate::utils::input_utils;
 
 use std::collections::HashMap;
 use std::ops::Add;

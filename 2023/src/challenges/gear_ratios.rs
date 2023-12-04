@@ -1,6 +1,6 @@
 use std::ops::Add;
 
-use crate::input_utils;
+use crate::utils::input_utils;
 
 pub fn calculate_gear_ratios(file_input_path: &std::path::Path) -> u32 {
     let lines = input_utils::read_file_data(file_input_path);
