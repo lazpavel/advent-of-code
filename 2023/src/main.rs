@@ -1,10 +1,25 @@
 mod trebuchet;
 mod cube_conundrum;
 mod input_utils;
+mod gear_ratios;
 
 fn main() {
     day_1();
     day_2();
+    day_3();
+}
+
+fn day_3() {
+    println!();
+    println!("Day 3 - Gear Ratios");
+    println!("===================================");
+    println!("Input file: ./assets/gear_ratios.txt");
+  
+    let gear_ratios_input_path = std::path::Path::new("./assets/gear_ratios.txt");
+    let gear_ratios = gear_ratios::calculate_gear_ratios(gear_ratios_input_path);
+    let advanced_gear_ratios = gear_ratios::calculate_advanced_gear_ratios(gear_ratios_input_path);
+
+    println!("The Great Escape result: {} {}", gear_ratios, advanced_gear_ratios);
 }
 
 fn day_2() {

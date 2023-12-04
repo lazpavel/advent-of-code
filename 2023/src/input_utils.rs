@@ -11,7 +11,13 @@ pub fn read_file_data(input_file_path: &std::path::Path) -> Vec<String> {
     let mut lines = Vec::new();
 
     for line in reader.lines() {
-        lines.push(line.unwrap());
+        let result = line.unwrap();
+
+        if result.is_empty() {
+            continue;
+        }
+
+        lines.push(result);
     }
     lines
 }
