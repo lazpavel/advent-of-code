@@ -2,11 +2,25 @@ mod trebuchet;
 mod cube_conundrum;
 mod input_utils;
 mod gear_ratios;
+mod scratchcards;
 
 fn main() {
     day_1();
     day_2();
     day_3();
+    day_4();
+}
+
+fn day_4() {
+    println!();
+    println!("Day 4 - Scratchcards");
+    println!("===================================");
+    println!("Input file: ./assets/scratchcards.txt");
+  
+    let scratchcards_input_path = std::path::Path::new("./assets/scratchcards.txt");
+    let scratchcards_result = scratchcards::calculate_scratchcards(scratchcards_input_path);
+
+    println!("Scratchcards result: {} {}", scratchcards_result.0, scratchcards_result.1);
 }
 
 fn day_3() {
@@ -19,7 +33,7 @@ fn day_3() {
     let gear_ratios = gear_ratios::calculate_gear_ratios(gear_ratios_input_path);
     let advanced_gear_ratios = gear_ratios::calculate_advanced_gear_ratios(gear_ratios_input_path);
 
-    println!("The Great Escape result: {} {}", gear_ratios, advanced_gear_ratios);
+    println!("The Gear Ratios result: {} {}", gear_ratios, advanced_gear_ratios);
 }
 
 fn day_2() {
