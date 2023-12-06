@@ -9,3 +9,5 @@
 ## Day 4: Scratchcards
 
 ## Day 5: Almanac Map
+
+## Day 6: The Boat Races

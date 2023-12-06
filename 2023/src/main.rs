@@ -7,6 +7,19 @@ fn main() {
     day_3();
     day_4();
     day_5();
+    day_6();
+}
+
+fn day_6() {
+    println!();
+    println!("Day 6 - Boat Race");
+    println!("===================================");
+    println!("Input file: ./assets/boat_race.txt");
+
+    let boat_race_input_path  = std::path::Path::new("./assets/boat_race.txt");
+    let boat_race_result  = challenges::boat_race::calculate(boat_race_input_path);
+
+    println!("Boat Race result: {}", boat_race_result);
 }
 
 fn day_5() {
