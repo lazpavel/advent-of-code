@@ -6,6 +6,19 @@ fn main() {
     day_2();
     day_3();
     day_4();
+    day_5();
+}
+
+fn day_5() {
+    println!();
+    println!("Day 5 - Almanac Map");
+    println!("===================================");
+    println!("Input file: ./assets/almanac_map.txt");
+
+    let almanac_map_input_path = std::path::Path::new("./assets/almanac_map.txt");
+    let almanac_map_result = challenges::almanac::calculate_almanac_map(almanac_map_input_path);
+
+    println!("Almanac Map result: {}", almanac_map_result);
 }
 
 fn day_4() {
