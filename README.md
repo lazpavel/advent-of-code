@@ -11,3 +11,5 @@
 ## Day 5: Almanac Map
 
 ## Day 6: The Boat Races
+
+## Day 7: Camel Cards

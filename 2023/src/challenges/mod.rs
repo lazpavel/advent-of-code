@@ -4,3 +4,4 @@ pub mod scratchcards;
 pub mod trebuchet;
 pub mod almanac;
 pub mod boat_race;
+pub mod camel_cards;

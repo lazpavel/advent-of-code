@@ -8,6 +8,19 @@ fn main() {
     day_4();
     day_5();
     day_6();
+    day_7();
+}
+
+fn day_7() {
+    println!();
+    println!("Day 7 - Camel Cards");
+    println!("===================================");
+    println!("Input file: ./assets/camel_cards.txt");
+
+    let input_path  = std::path::Path::new("./assets/camel_cards.txt");
+    let result  = challenges::camel_cards::execute(input_path);
+
+    println!("Camel Cards: {}", result);
 }
 
 fn day_6() {
