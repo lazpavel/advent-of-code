@@ -34,6 +34,7 @@ struct Hand {
 
 fn get_card_value(card: char) -> u32 {
     match card {
+        // for part 1, set J to 11
         'J' => 1,
         'A' => 14,
         'K' => 13,
@@ -95,8 +96,8 @@ fn get_hand_type(cards: &str) -> HandType {
         }
     }
 
+    // comment this block for part 1
     let j_count = cards.matches('J').count();
-
     if j_count > 0 && cards_map.len() > 1 {
         cards_map.remove(&'J');
         if let Some((card, _)) = cards_map.iter().max_by_key(|&(_, count)| count) {
