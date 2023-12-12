@@ -13,3 +13,5 @@
 ## Day 6: The Boat Races
 
 ## Day 7: Camel Cards
+
+## Day 8: Haunted Wasteland

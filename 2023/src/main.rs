@@ -1,6 +1,5 @@
 mod challenges;
 mod utils;
-
 fn main() {
     day_1();
     day_2();
@@ -9,6 +8,19 @@ fn main() {
     day_5();
     day_6();
     day_7();
+    day_8();
+}
+
+fn day_8() {
+    println!();
+    println!("Day 8 - Haunted Wasteland");
+    println!("===================================");
+    println!("Input file: ./assets/haunted_wasteland.txt");
+
+    let input_path  = std::path::Path::new("./assets/haunted_wasteland.txt");
+    let result  = challenges::haunted_wasteland::execute(input_path);
+
+    println!("Haunted Wasteland: {}", result);
 }
 
 fn day_7() {
