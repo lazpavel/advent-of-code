@@ -1,5 +1,6 @@
 mod challenges;
 mod utils;
+
 fn main() {
     day_1();
     day_2();
@@ -9,6 +10,19 @@ fn main() {
     day_6();
     day_7();
     day_8();
+    day_9();
+}
+
+fn day_9() {
+    println!();
+    println!("Day 9 - Mirage Maintenance");
+    println!("===================================");
+    println!("Input file: ./assets/mirage_maintenance.txt");
+
+    let input_path  = std::path::Path::new("./assets/mirage_maintenance.txt");
+    let result  = challenges::mirage::execute(input_path);
+
+    println!("Mirage Maintenance: {}", result);
 }
 
 fn day_8() {
