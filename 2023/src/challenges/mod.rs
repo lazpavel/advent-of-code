@@ -7,3 +7,4 @@ pub mod boat_race;
 pub mod camel_cards;
 pub mod haunted_wasteland;
 pub mod mirage;
+pub mod pipe_maze;

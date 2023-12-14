@@ -1,19 +1,33 @@
 mod challenges;
 mod utils;
+mod data_structures;
 
 fn main() {
-    day_1();
-    day_2();
-    day_3();
-    day_4();
-    day_5();
-    day_6();
-    day_7();
-    day_8();
-    day_9();
+    day_01();
+    day_02();
+    day_03();
+    day_04();
+    day_05();
+    day_06();
+    day_07();
+    day_08();
+    day_09();
+    day_10();
 }
 
-fn day_9() {
+fn day_10() {
+    println!();
+    println!("Day 10 - Pipe Maze");
+    println!("===================================");
+    println!("Input file: ./assets/pipe_maze.txt");
+
+    let input_path  = std::path::Path::new("./assets/pipe_maze.txt");
+    let result  = challenges::pipe_maze::execute(input_path);
+
+    println!("Pipe Maze: {}", result);
+}
+
+fn day_09() {
     println!();
     println!("Day 9 - Mirage Maintenance");
     println!("===================================");
@@ -25,7 +39,7 @@ fn day_9() {
     println!("Mirage Maintenance: {}", result);
 }
 
-fn day_8() {
+fn day_08() {
     println!();
     println!("Day 8 - Haunted Wasteland");
     println!("===================================");
@@ -37,7 +51,7 @@ fn day_8() {
     println!("Haunted Wasteland: {}", result);
 }
 
-fn day_7() {
+fn day_07() {
     println!();
     println!("Day 7 - Camel Cards");
     println!("===================================");
@@ -49,7 +63,7 @@ fn day_7() {
     println!("Camel Cards: {}", result);
 }
 
-fn day_6() {
+fn day_06() {
     println!();
     println!("Day 6 - Boat Race");
     println!("===================================");
@@ -61,7 +75,7 @@ fn day_6() {
     println!("Boat Race result: {}", boat_race_result);
 }
 
-fn day_5() {
+fn day_05() {
     println!();
     println!("Day 5 - Almanac Map");
     println!("===================================");
@@ -73,7 +87,7 @@ fn day_5() {
     println!("Almanac Map result: {}", almanac_map_result);
 }
 
-fn day_4() {
+fn day_04() {
     println!();
     println!("Day 4 - Scratchcards");
     println!("===================================");
@@ -89,7 +103,7 @@ fn day_4() {
     );
 }
 
-fn day_3() {
+fn day_03() {
     println!();
     println!("Day 3 - Gear Ratios");
     println!("===================================");
@@ -106,7 +120,7 @@ fn day_3() {
     );
 }
 
-fn day_2() {
+fn day_02() {
     println!();
     println!("Day 2 - Cube Conundrum");
     println!("===================================");
@@ -128,7 +142,7 @@ fn day_2() {
     );
 }
 
-fn day_1() {
+fn day_01() {
     println!("Day 1 - Trebuchet");
     println!("===================================");
     println!("Input file: ./assets/trebuchet.txt");
