@@ -7,7 +7,7 @@ use crate::{
 
 pub fn execute(input_path: &std::path::Path) -> usize {
     let raw_game_data = input_utils::read_file_data(input_path);
-    let chars = vec!['|' /*, '-', 'L', 'J', '7', 'F' */];
+    let chars = vec!['|', '-', 'L', 'J', '7', 'F'];
     let cols = raw_game_data[0].len() * 2;
     let mut max_graph = None;
     let mut max_cycle = None;
@@ -40,8 +40,7 @@ pub fn execute(input_path: &std::path::Path) -> usize {
         max_cycle.as_ref().unwrap(),
         max_graph.as_ref().unwrap(),
     );
-    let result = fill_matrix(&mut matrix, &raw_game_data);
-    println!("{:?}", result);
+    let _result = fill_matrix(&mut matrix, &raw_game_data);
 
     max_cycle_length
 }

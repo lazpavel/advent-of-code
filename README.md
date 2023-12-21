@@ -19,3 +19,5 @@
 ## Day 9: Mirage Maintenance
 
 ## Day 10: Pipe Maze
+
+## Day 11: Cosmic Expansion

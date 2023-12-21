@@ -13,6 +13,41 @@ fn main() {
     day_08();
     day_09();
     day_10();
+
+    day_11();
+    // day_12();
+    // day_13();
+    // day_14();
+    // day_15();
+    // day_16();
+    // day_17();
+    // day_18();
+    // day_19();
+    day_20();
+}
+
+fn day_20() {
+    // println!();
+    // println!("Day 20 - Pulse Propagation");
+    // println!("===================================");
+    // println!("Input file: ./assets/_propagation.txt");
+
+    // let input_path  = std::path::Path::new("./assets/_propagation.txt");
+    // let result  = challenges::pulse_propagation::execute(input_path);
+
+    // println!("Pulse Propagation: {}", result);
+}
+
+fn day_11() {
+    println!();
+    println!("Day 11 - Cosmic Expansion");
+    println!("===================================");
+    println!("Input file: ./assets/cosmic_expansion.txt");
+
+    let input_path  = std::path::Path::new("./assets/cosmic_expansion.txt");
+    let result  = challenges::cosmic_expansion::execute(input_path);
+
+    println!("Pulse Propagation: {}", result);
 }
 
 fn day_10() {

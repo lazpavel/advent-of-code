@@ -1,10 +1,11 @@
-pub mod cube_conundrum;
-pub mod gear_ratios;
-pub mod scratchcards;
-pub mod trebuchet;
 pub mod almanac;
 pub mod boat_race;
 pub mod camel_cards;
+pub mod cosmic_expansion;
+pub mod cube_conundrum;
+pub mod gear_ratios;
 pub mod haunted_wasteland;
 pub mod mirage;
 pub mod pipe_maze;
+pub mod scratchcards;
+pub mod trebuchet;
