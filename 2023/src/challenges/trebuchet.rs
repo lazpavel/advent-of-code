@@ -2,7 +2,7 @@ use crate::utils::input_utils;
 use std::collections::HashMap;
 
 pub fn calculate_trebuchet(input_file_path: &std::path::Path) -> u32 {
-    let lines = input_utils::read_file_data(input_file_path);
+    let lines = input_utils::read_file_data(input_file_path, true);
 
     let mut sum = 0;
     for line in lines.iter() {

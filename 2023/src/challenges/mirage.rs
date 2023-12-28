@@ -1,7 +1,7 @@
 use crate::utils::input_utils;
 
 pub fn execute(input_path: &std::path::Path) -> i32 {
-    let raw_game_data = input_utils::read_file_data(input_path);
+    let raw_game_data = input_utils::read_file_data(input_path, true);
     let data = process_input_data(&raw_game_data);
     
     calculate(data)

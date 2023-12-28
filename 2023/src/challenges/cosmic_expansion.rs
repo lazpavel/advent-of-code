@@ -3,7 +3,7 @@ use std::vec;
 use crate::utils::input_utils;
 
 pub fn execute(input_path: &std::path::Path) -> u128 {
-    let input = input_utils::read_file_data(input_path);
+    let input = input_utils::read_file_data(input_path, true);
     let data = convert_input(&input);
     let expanded_data = expand_data(&data);
 

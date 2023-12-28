@@ -22,7 +22,7 @@ struct AlmanacMap {
 }
 
 pub fn calculate_almanac_map(input_path: &std::path::Path) -> u128 {
-    let raw_game_data = input_utils::read_file_data(input_path);
+    let raw_game_data = input_utils::read_file_data(input_path, true);
     let almanac_map = process_almanac_map(raw_game_data);
     process_game_data(almanac_map)
 }

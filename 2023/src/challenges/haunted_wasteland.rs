@@ -5,7 +5,7 @@ use num_integer::lcm;
 use crate::utils::input_utils;
 
 pub fn execute(input_path: &std::path::Path) -> u128 {
-    let raw_game_data = input_utils::read_file_data(input_path);
+    let raw_game_data = input_utils::read_file_data(input_path, true);
     let (steps, graph, start_points) = extract_map_graph(&raw_game_data);
     let mut steps_generator = steps.iter().cycle();
     

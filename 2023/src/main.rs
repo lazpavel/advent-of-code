@@ -15,27 +15,90 @@ fn main() {
     day_10();
 
     day_11();
-    // day_12();
+    day_12();
     // day_13();
     // day_14();
-    // day_15();
+    day_15();
     // day_16();
     // day_17();
     // day_18();
     // day_19();
     day_20();
+    day_23();
+    day_24();
+    day_25();
+}
+
+fn day_25() {
+    println!();
+    println!("Day 25 - Snow Overload");
+    println!("===================================");
+    println!("Input file: ./assets/snow_overload.txt");
+
+    let input_path  = std::path::Path::new("./assets/snow_overload.txt");
+    let result  = challenges::snow_overload::execute(input_path);
+
+    println!("Snow Overload: {}", result);
+}
+
+fn day_24() {
+    println!();
+    println!("Day 24 - Hailstones");
+    println!("===================================");
+    println!("Input file: ./assets/hailstones.txt");
+
+    let input_path  = std::path::Path::new("./assets/hailstones.txt");
+    let result  = challenges::hailstones::execute(input_path);
+
+    println!("Hailstones: {}", result);
+}
+
+fn day_23() {
+    println!();
+    println!("Day 24 - Long Walk");
+    println!("===================================");
+    println!("Input file: ./assets/long_walk.txt");
+
+    let input_path  = std::path::Path::new("./assets/long_walk.txt");
+    let result  = challenges::long_walk::execute(input_path);
+
+    println!("Long Walk: {}", result);
 }
 
 fn day_20() {
-    // println!();
-    // println!("Day 20 - Pulse Propagation");
-    // println!("===================================");
-    // println!("Input file: ./assets/_propagation.txt");
+    println!();
+    println!("Day 20 - Aplenty");
+    println!("===================================");
+    println!("Input file: ./assets/aplenty.txt");
 
-    // let input_path  = std::path::Path::new("./assets/_propagation.txt");
-    // let result  = challenges::pulse_propagation::execute(input_path);
+    let input_path  = std::path::Path::new("./assets/aplenty.txt");
+    let result  = challenges::aplenty::execute(input_path);
 
-    // println!("Pulse Propagation: {}", result);
+    println!("Aplenty: {:?}", result);
+}
+
+fn day_15() {
+    println!();
+    println!("Day 15 - Lens Library");
+    println!("===================================");
+    println!("Input file: ./assets/lens_library.txt");
+
+    let input_path  = std::path::Path::new("./assets/lens_library.txt");
+    let result  = challenges::lens_library::execute(input_path);
+
+    println!("Lens Library: {}", result);
+}
+
+fn day_12() {
+    println!();
+    println!("Day 12 - Hot Springs");
+    println!("===================================");
+    println!("Input file: ./assets/hot_springs.txt");
+
+    let input_path  = std::path::Path::new("./assets/hot_springs.txt");
+    let result  = challenges::hot_springs::execute(input_path);
+
+    println!("Hot Springs: {}", result);
 }
 
 fn day_11() {

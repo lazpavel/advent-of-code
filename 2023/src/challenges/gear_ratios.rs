@@ -3,7 +3,7 @@ use std::ops::Add;
 use crate::utils::input_utils;
 
 pub fn calculate_gear_ratios(file_input_path: &std::path::Path) -> u32 {
-    let lines = input_utils::read_file_data(file_input_path);
+    let lines = input_utils::read_file_data(file_input_path, false);
 
     let mut sum = 0;
     for line_index in 0..lines.len() {
@@ -28,7 +28,7 @@ pub fn calculate_gear_ratios(file_input_path: &std::path::Path) -> u32 {
 }
 
 pub fn calculate_advanced_gear_ratios(file_input_path: &std::path::Path) -> u128 {
-    let lines = input_utils::read_file_data(file_input_path);
+    let lines = input_utils::read_file_data(file_input_path, false);
 
     let mut advanced_sum: u128 = 0;
     for line_index in 0..lines.len() {

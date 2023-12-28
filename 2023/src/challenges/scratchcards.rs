@@ -8,7 +8,7 @@ struct Scratchcard {
 }
 
 pub fn calculate_scratchcards(scratchboard_input_path: &std::path::Path) -> (u32, u32) {
-    let lines = input_utils::read_file_data(scratchboard_input_path);
+    let lines = input_utils::read_file_data(scratchboard_input_path, true);
     let mut scratchcards = get_scratchcards(&lines);
     let mut sum = 0;
 

@@ -3,7 +3,7 @@ use std::{
     io::{self, BufRead},
 };
 
-pub fn read_file_data(input_file_path: &std::path::Path) -> Vec<String> {
+pub fn read_file_data(input_file_path: &std::path::Path, skip_empty_lines: bool) -> Vec<String> {
     let file = File::open(input_file_path).unwrap();
     let reader = io::BufReader::new(file);
 
@@ -13,7 +13,7 @@ pub fn read_file_data(input_file_path: &std::path::Path) -> Vec<String> {
     for line in reader.lines() {
         let result = line.unwrap();
 
-        if result.is_empty() {
+        if result.is_empty() && skip_empty_lines {
             continue;
         }
 

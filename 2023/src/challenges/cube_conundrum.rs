@@ -7,7 +7,7 @@ pub fn calculate_cube_conundrum(
     input_file_path: &std::path::Path,
     config: HashMap<&str, u32>,
 ) -> (u32, u128) {
-    let lines = input_utils::read_file_data(input_file_path);
+    let lines = input_utils::read_file_data(input_file_path, false);
     let games_data = get_games_data(&lines);
 
     let mut sum = 0;

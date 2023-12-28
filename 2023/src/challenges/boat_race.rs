@@ -1,7 +1,7 @@
 use crate::utils::input_utils;
 
 pub fn calculate(input_path: &std::path::Path) -> u128 {
-    let raw_game_data = input_utils::read_file_data(input_path);
+    let raw_game_data = input_utils::read_file_data(input_path, true);
     let game_data = parse_boat_race_data(raw_game_data);
     
     calculate_wins(game_data.0, game_data.1)

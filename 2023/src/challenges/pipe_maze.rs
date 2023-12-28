@@ -1,12 +1,8 @@
 use std::{cmp::max, vec};
-
-use crate::{
-    data_structures::graph::{Edge, Graph},
-    utils::input_utils,
-};
+use crate::utils::input_utils;
 
 pub fn execute(input_path: &std::path::Path) -> usize {
-    let raw_game_data = input_utils::read_file_data(input_path);
+    let raw_game_data = input_utils::read_file_data(input_path, true);
     let chars = vec!['|', '-', 'L', 'J', '7', 'F'];
     let cols = raw_game_data[0].len() * 2;
     let mut max_graph = None;
@@ -91,7 +87,7 @@ fn fill_matrix(matrix: &mut [Vec<i32>], raw_game_data: &[String]) -> Vec<Vec<cha
     result
 }
 
-fn build_maze_matrix(raw_game_data: &[String], cycle: &Vec<usize>, graph: &Graph) -> Vec<Vec<i32>> {
+fn build_maze_matrix(raw_game_data: &[String], cycle: &Vec<usize>, graph: &PipeGraph) -> Vec<Vec<i32>> {
     let rows = raw_game_data.len();
     let cols = raw_game_data[0].len();
 
@@ -111,12 +107,12 @@ fn build_maze_matrix(raw_game_data: &[String], cycle: &Vec<usize>, graph: &Graph
     matrix
 }
 
-fn build_graph(raw_game_data: &[String], start_char: char) -> (usize, Graph) {
+fn build_graph(raw_game_data: &[String], start_char: char) -> (usize, PipeGraph) {
     let mut start = 0;
     let rows = raw_game_data.len() * 2;
     let cols = raw_game_data[0].len() * 2;
 
-    let mut graph: Graph = Graph::new(rows * cols);
+    let mut graph: PipeGraph = PipeGraph::new(rows * cols);
     let mut row = 0;
 
     let mut pos_y = 0;
@@ -152,7 +148,7 @@ fn connect_graph(
     ch: char,
     current: usize,
     cols: usize,
-    graph: &mut Graph,
+    graph: &mut PipeGraph,
     (pos_x, pos_y): (usize, usize),
 ) {
     match ch {
@@ -181,7 +177,7 @@ fn connect_graph(
 fn connect_south_east(
     current: usize,
     cols: usize,
-    graph: &mut Graph,
+    graph: &mut PipeGraph,
     (pos_x, pos_y): (usize, usize),
 ) {
     // F is a 90-degree bend connecting south and east.
@@ -198,7 +194,7 @@ fn connect_south_east(
 fn connect_south_west(
     current: usize,
     cols: usize,
-    graph: &mut Graph,
+    graph: &mut PipeGraph,
     (pos_x, pos_y): (usize, usize),
 ) {
     // 7 is a 90-degree bend connecting south and west.
@@ -215,7 +211,7 @@ fn connect_south_west(
 fn connect_north_west(
     current: usize,
     cols: usize,
-    graph: &mut Graph,
+    graph: &mut PipeGraph,
     (pos_x, pos_y): (usize, usize),
 ) {
     // J is a 90-degree bend connecting north and west.
@@ -232,7 +228,7 @@ fn connect_north_west(
 fn connect_north_east(
     current: usize,
     cols: usize,
-    graph: &mut Graph,
+    graph: &mut PipeGraph,
     (pos_x, pos_y): (usize, usize),
 ) {
     // L is a 90-degree bend connecting north and east.
@@ -249,7 +245,7 @@ fn connect_north_east(
 fn connect_east_west(
     current: usize,
     cols: usize,
-    graph: &mut Graph,
+    graph: &mut PipeGraph,
     (pos_x, pos_y): (usize, usize),
 ) {
     // - is a horizontal pipe connecting east and west.
@@ -267,7 +263,7 @@ fn connect_east_west(
 fn connect_north_south(
     current: usize,
     cols: usize,
-    graph: &mut Graph,
+    graph: &mut PipeGraph,
     (pos_x, pos_y): (usize, usize),
 ) {
     // | is a vertical pipe connecting north and south.
@@ -284,7 +280,7 @@ fn connect_north_south(
 fn is_cyclic_util(
     start: usize,
     visited: &mut Vec<bool>,
-    graph: &Graph,
+    graph: &PipeGraph,
     path: &mut Vec<usize>,
 ) -> Option<Vec<usize>> {
     let mut stack = vec![(start, None)];
@@ -310,7 +306,7 @@ fn is_cyclic_util(
     None
 }
 
-fn find_cycle(graph: &Graph, start: usize) -> Option<Vec<usize>> {
+fn find_cycle(graph: &PipeGraph, start: usize) -> Option<Vec<usize>> {
     let mut visited = vec![false; graph.size];
 
     let mut path = Vec::new();
@@ -321,4 +317,63 @@ fn find_cycle(graph: &Graph, start: usize) -> Option<Vec<usize>> {
     }
 
     None
+}
+
+#[derive(Debug)]
+pub struct PipeGraph {
+    pub size: usize,
+    pub edges: Vec<Edge>,
+    pub glyph_groups: Vec<Vec<usize>>,
+}
+
+impl PipeGraph {
+    pub fn new(size: usize) -> Self {
+        PipeGraph {
+            size,
+            edges: Vec::new(),
+            glyph_groups: Vec::new(),
+        }
+    }
+
+    pub fn add_edge(&mut self, edge: Edge) {
+        self.edges.push(edge);
+    }
+
+    pub fn neighbors(&self, current: usize) -> Option<Vec<usize>> {
+        let mut neighbors = Vec::new();
+
+        for edge in &self.edges {
+            if edge.from == current {
+                neighbors.push(edge.to);
+            }
+        }
+
+        Some(neighbors)
+    }
+
+    pub fn get_edge(&self, current: usize) -> Option<&Edge> {
+        for edge in &self.edges {
+            if edge.from == current {
+                return Some(edge);
+            }
+        }
+
+        None
+    }
+}
+
+#[derive(Debug)]
+pub struct Edge {
+    pub from: usize,
+    pub to: usize,
+    pub weight: u32,
+
+    pub pos_x: usize,
+    pub pos_y: usize,
+}
+
+impl Edge {
+    pub fn new(from: usize, to: usize, weight: u32, (pos_x, pos_y): (usize, usize)) -> Self {
+        Edge { from, to, weight, pos_x, pos_y }
+    }
 }

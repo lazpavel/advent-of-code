@@ -45,7 +45,7 @@ fn get_card_value(card: char) -> u32 {
 }
 
 pub fn execute(input_path: &std::path::Path) -> u32 {
-    let raw_game_data = crate::utils::input_utils::read_file_data(input_path);
+    let raw_game_data = crate::utils::input_utils::read_file_data(input_path, true);
     let mut hands = get_hands(&raw_game_data);
 
     hands.sort_by(|a, b| {
