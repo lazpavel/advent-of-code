@@ -1,4 +1,5 @@
 pub mod almanac;
+pub mod aplenty;
 pub mod boat_race;
 pub mod camel_cards;
 pub mod cosmic_expansion;
@@ -13,5 +14,5 @@ pub mod mirage;
 pub mod pipe_maze;
 pub mod scratchcards;
 pub mod snow_overload;
+pub mod step_counter;
 pub mod trebuchet;
-pub mod aplenty;

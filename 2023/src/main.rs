@@ -24,6 +24,7 @@ fn main() {
     // day_18();
     // day_19();
     day_20();
+    day_21();
     day_23();
     day_24();
     day_25();
@@ -63,6 +64,18 @@ fn day_23() {
     let result  = challenges::long_walk::execute(input_path);
 
     println!("Long Walk: {}", result);
+}
+
+fn day_21() {
+    println!();
+    println!("Day 21 - Step Counter");
+    println!("===================================");
+    println!("Input file: ./assets/step_counter.txt");
+
+    let input_path  = std::path::Path::new("./assets/step_counter.txt");
+    let result  = challenges::step_counter::execute(input_path);
+
+    println!("Step Counter: {}", result);
 }
 
 fn day_20() {
