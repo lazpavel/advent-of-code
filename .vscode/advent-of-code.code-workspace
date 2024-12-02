@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../2023",
+      "name": "Advent of Code 2023"
+		},
+    {
+      "path": "../2024",
+      "name": "Advent of Code 2024"
+    }
+  ],
+  "settings": {}
+}
