@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::utils::parse_input;
+use crate::utils::read_matrix_file;
 
 fn calculate_distance(matrix: &Vec<Vec<i32>>) -> i32 {
   let mut v1: Vec<i32> = matrix.iter().map(|row| row[0]).collect();
@@ -35,7 +35,7 @@ fn calculate_similarity(matrix: &Vec<Vec<i32>>) -> i32 {
 }
 
 pub fn run() -> (i32, i32) {
-  let matrix = parse_input("./inputs/historian_hysteria.txt").unwrap();
+  let matrix = read_matrix_file("./inputs/historian_hysteria.txt").unwrap();
 
   let distance = calculate_distance(&matrix);
   let similarity = calculate_similarity(&matrix);

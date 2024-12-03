@@ -1,7 +1,7 @@
-use crate::utils::parse_input;
+use crate::utils::read_matrix_file;
 
 pub fn run() -> (usize, usize) {
-  let matrix = parse_input("./inputs/red_nosed_reports.txt").unwrap();
+  let matrix = read_matrix_file("./inputs/red_nosed_reports.txt").unwrap();
   let safe_count = matrix.iter().filter(|row| is_safe(row, 0)).count();
   let limit_safe_count = matrix.iter().filter(|row| is_safe(row, 1)).count();
 

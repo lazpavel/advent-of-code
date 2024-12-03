@@ -1,8 +1,8 @@
 use std::fs::File;
-use std::io::{self, BufRead};
+use std::io::{self, BufRead, Read};
 use std::path::Path;
 
-pub fn parse_input(file_path: &str) -> io::Result<Vec<Vec<i32>>> {
+pub fn read_matrix_file(file_path: &str) -> io::Result<Vec<Vec<i32>>> {
   let mut matrix = Vec::new();
 
   let path = Path::new(file_path);
@@ -19,4 +19,13 @@ pub fn parse_input(file_path: &str) -> io::Result<Vec<Vec<i32>>> {
   }
 
   Ok(matrix)
+}
+
+pub fn read_string_file(file_path: &str) -> io::Result<String> {
+  let path = Path::new(file_path);
+  let mut file = File::open(&path)?;
+  let mut contents = String::new();
+  file.read_to_string(&mut contents)?;
+  
+  Ok(contents)
 }
