@@ -2,7 +2,23 @@ use std::fs::File;
 use std::io::{self, BufRead, Read};
 use std::path::Path;
 
-pub fn read_matrix_file(file_path: &str) -> io::Result<Vec<Vec<i32>>> {
+pub fn read_matrix_file_u8(file_path: &str) -> io::Result<Vec<Vec<u8>>> {
+  let mut matrix = Vec::new();
+
+  let path = Path::new(file_path);
+  let file = File::open(&path)?;
+  let reader = io::BufReader::new(file);
+
+  for line in reader.lines() {
+    let line = line?;
+    let row: Vec<u8> = line.into_bytes();
+    matrix.push(row);
+  }
+
+  Ok(matrix)
+}
+
+pub fn read_matrix_file_i32(file_path: &str) -> io::Result<Vec<Vec<i32>>> {
   let mut matrix = Vec::new();
 
   let path = Path::new(file_path);
