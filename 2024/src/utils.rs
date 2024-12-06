@@ -3,6 +3,22 @@ use std::fs::File;
 use std::io::{self, BufRead, Read};
 use std::path::Path;
 
+pub fn read_file_guard_map(file_path: &str) -> io::Result<Vec<Vec<u8>>> {
+  let mut map = Vec::new();
+
+  let path = Path::new(file_path);
+  let file = File::open(&path)?;
+  let reader = io::BufReader::new(file);
+
+  for line in reader.lines() {
+    let line = line?;
+    let row: Vec<u8> = line.into_bytes();
+    map.push(row);
+  }
+
+  Ok(map)
+}
+
 pub fn read_print_queue_data(
   file_path: &str,
 ) -> io::Result<(HashMap<u64, Vec<u64>>, Vec<Vec<u64>>)> {
