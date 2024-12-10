@@ -4,6 +4,22 @@ use std::io::{self, BufRead, Read};
 use std::path::Path;
 use std::vec;
 
+pub fn read_file_antenna_map(file_path: &str) -> io::Result<Vec<Vec<u8>>> {
+  let mut map = Vec::new();
+
+  let path = Path::new(file_path);
+  let file = File::open(&path)?;
+  let reader = io::BufReader::new(file);
+
+  for line in reader.lines() {
+    let line = line?;
+    let row: Vec<u8> = line.bytes().filter(|&b| b != b' ').collect();
+    map.push(row);
+  }
+
+  Ok(map)
+}
+
 pub fn read_file_bridge_repair_data(file_path: &str) -> io::Result<Vec<(u64, Vec<u64>)>> {
   let mut input = vec![];
 
@@ -14,9 +30,14 @@ pub fn read_file_bridge_repair_data(file_path: &str) -> io::Result<Vec<(u64, Vec
   for line in reader.lines() {
     let line = line?;
     let mut parts = line.split(':');
-    
+
     let result = parts.next().unwrap().parse::<u64>().unwrap();
-    let terms = parts.next().unwrap().split_whitespace().map(|s| s.parse::<u64>().unwrap()).collect();
+    let terms = parts
+      .next()
+      .unwrap()
+      .split_whitespace()
+      .map(|s| s.parse::<u64>().unwrap())
+      .collect();
 
     input.push((result, terms));
   }
