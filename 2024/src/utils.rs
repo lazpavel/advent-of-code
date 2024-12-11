@@ -1,9 +1,26 @@
 use std::collections::HashMap;
 use std::fs::File;
-use std::io::{self, BufRead, Read};
+use std::io::{self, BufRead, BufReader, Read};
 use std::path::Path;
 use std::vec;
 
+pub fn read_file_to_digits(file_path: &str) -> io::Result<Vec<u8>> {
+  let path = std::path::Path::new(file_path);
+  let file = File::open(&path)?;
+  let reader = BufReader::new(file);
+
+  let mut digits = Vec::new();
+  for line in reader.lines() {
+      let line = line?;
+      for ch in line.chars() {
+          if let Some(digit) = ch.to_digit(10) {
+              digits.push(digit as u8);
+          }
+      }
+  }
+
+  Ok(digits)
+}
 pub fn read_file_antenna_map(file_path: &str) -> io::Result<Vec<Vec<u8>>> {
   let mut map = Vec::new();
 
