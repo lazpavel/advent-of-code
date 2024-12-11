@@ -1,7 +1,7 @@
-use crate::utils::read_file_guard_map;
+use crate::utils::read_matrix_file_u8;
 
 pub fn run() -> (usize, usize) {
-  let mut map = read_file_guard_map("./inputs/guard_gallivant.txt").unwrap();
+  let mut map = read_matrix_file_u8("./inputs/guard_gallivant.txt").unwrap();
   let original_map = map.clone();
   let coordinates = find_guard_position(&map);
 

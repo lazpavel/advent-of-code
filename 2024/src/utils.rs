@@ -4,6 +4,29 @@ use std::io::{self, BufRead, BufReader, Read};
 use std::path::Path;
 use std::vec;
 
+pub fn read_file_matrix(file_path: &str) -> io::Result<Vec<Vec<Option<u32>>>> {
+  let mut matrix = Vec::new();
+
+  let path = Path::new(file_path);
+  let file = File::open(&path)?;
+  let reader = io::BufReader::new(file);
+
+  for line in reader.lines() {
+    let line = line?;
+    let row: Vec<Option<u32>> = line.chars()
+    .filter_map(|c| match c {
+        ' ' => None,
+        '.' => Some(None),
+        d if d.is_digit(10) => Some(Some(d.to_digit(10).unwrap())),
+        _ => None,
+    })
+    .collect();
+    matrix.push(row);
+  }
+
+  Ok(matrix)
+}
+
 pub fn read_file_to_digits(file_path: &str) -> io::Result<Vec<u8>> {
   let path = std::path::Path::new(file_path);
   let file = File::open(&path)?;
@@ -21,6 +44,7 @@ pub fn read_file_to_digits(file_path: &str) -> io::Result<Vec<u8>> {
 
   Ok(digits)
 }
+
 pub fn read_file_antenna_map(file_path: &str) -> io::Result<Vec<Vec<u8>>> {
   let mut map = Vec::new();
 
@@ -60,21 +84,6 @@ pub fn read_file_bridge_repair_data(file_path: &str) -> io::Result<Vec<(u64, Vec
   }
 
   Ok(input)
-}
-pub fn read_file_guard_map(file_path: &str) -> io::Result<Vec<Vec<u8>>> {
-  let mut map = Vec::new();
-
-  let path = Path::new(file_path);
-  let file = File::open(&path)?;
-  let reader = io::BufReader::new(file);
-
-  for line in reader.lines() {
-    let line = line?;
-    let row: Vec<u8> = line.into_bytes();
-    map.push(row);
-  }
-
-  Ok(map)
 }
 
 pub fn read_print_queue_data(

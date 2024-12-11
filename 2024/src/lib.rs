@@ -9,3 +9,4 @@ pub mod guard_gallivant;
 pub mod bridge_repair;
 pub mod resonant_collinearity;
 pub mod disk_fragmenter;
+pub mod hoof_it;
