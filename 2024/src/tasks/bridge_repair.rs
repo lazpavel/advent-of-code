@@ -1,4 +1,4 @@
-use crate::utils::read_file_bridge_repair_data;
+use crate::tasks::utils::read_file_bridge_repair_data;
 
 pub fn run() -> (u64, u64) {
   let inputs = read_file_bridge_repair_data("./inputs/bridge_repair.txt").unwrap();

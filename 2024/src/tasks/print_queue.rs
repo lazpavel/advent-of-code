@@ -1,6 +1,6 @@
 use std::collections::{HashMap, VecDeque};
 
-use crate::utils::read_print_queue_data;
+use crate::tasks::utils::read_print_queue_data;
 
 pub fn run() -> (u64, u64) {
   let (rules, queues) = read_print_queue_data("./inputs/print_queue.txt").unwrap();

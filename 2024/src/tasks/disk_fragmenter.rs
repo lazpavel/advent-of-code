@@ -1,4 +1,4 @@
-use crate::utils::read_file_to_digits;
+use crate::tasks::utils::read_file_to_digits;
 
 #[derive(Clone, PartialEq, Debug)]
 enum DiskDataType {

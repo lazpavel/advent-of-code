@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use crate::utils::read_matrix_file_i32;
+use crate::tasks::utils::read_matrix_file_i32;
 
 fn calculate_distance(matrix: &Vec<Vec<i32>>) -> i32 {
   let mut v1: Vec<i32> = matrix.iter().map(|row| row[0]).collect();

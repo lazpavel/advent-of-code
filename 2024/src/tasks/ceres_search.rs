@@ -1,4 +1,4 @@
-use crate::utils::read_matrix_file_u8;
+use crate::tasks::utils::read_matrix_file_u8;
 
 pub fn run() -> (usize, usize) {
   let word = "XMAS";

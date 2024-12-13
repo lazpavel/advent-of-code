@@ -167,3 +167,14 @@ pub fn read_string_file(file_path: &str) -> io::Result<String> {
 
   Ok(contents)
 }
+
+pub fn read_file_u64_vec(file_path: &str) -> io::Result<Vec<u64>> {
+  let path = Path::new(file_path);
+  let file = File::open(&path)?;
+  let reader = io::BufReader::new(file);
+
+  let line = reader.lines().next().unwrap().unwrap();
+  let vec = line.split_whitespace().map(|s| s.parse::<u64>().unwrap()).collect();
+
+  Ok(vec)
+}

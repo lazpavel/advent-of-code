@@ -1,6 +1,6 @@
 use std::collections::{HashMap, HashSet};
 
-use crate::utils::read_file_antenna_map;
+use crate::tasks::utils::read_file_antenna_map;
 
 pub fn run() -> (usize, usize) {
   let map = read_file_antenna_map("./inputs/resonant_collinearity.txt").unwrap();

@@ -1,4 +1,4 @@
-mod utils;
+pub mod utils;
 
 pub mod historian_hysteria;
 pub mod red_nosed_reports;
@@ -10,3 +10,4 @@ pub mod bridge_repair;
 pub mod resonant_collinearity;
 pub mod disk_fragmenter;
 pub mod hoof_it;
+pub mod plutonian_pebbles;

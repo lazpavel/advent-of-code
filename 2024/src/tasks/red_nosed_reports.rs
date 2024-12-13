@@ -1,4 +1,4 @@
-use crate::utils::read_matrix_file_i32;
+use crate::tasks::utils::read_matrix_file_i32;
 
 pub fn run() -> (usize, usize) {
   let matrix = read_matrix_file_i32("./inputs/red_nosed_reports.txt").unwrap();

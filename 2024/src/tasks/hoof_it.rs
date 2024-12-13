@@ -1,6 +1,6 @@
 use std::collections::HashSet;
 
-use crate::utils::read_file_matrix;
+use crate::tasks::utils::read_file_matrix;
 
 pub fn run() -> (usize, usize) {
   let map = read_file_matrix("./inputs/hoof_it.txt").unwrap();
